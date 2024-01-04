@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Multi-Room Jitsi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    .room-container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    .room-details {
+      margin-bottom: 10px;
+    }
+    .room-details span {
+      display: inline-block;
+      margin-right: 15px;
+      color: #666;
+    }
+    .flag {
+      width: 20px;
+      height: 15px;
+      margin-right: 5px;
+    }
+    .joinButton {
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .joinButton:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script src='https://8x8.vc/external_api.js' async></script>
+</head>
+<body>
+
+  <header>
+    <h1>Premium Multi-Room Jitsi</h1>
+  </header>
+
+  <!-- Room 1 -->
+  <div class="room-container">
+    <h2>Room 1</h2>
+    <div class="room-details">
+      <span>Time: 10:00 AM</span>
+      <span>Language: English</span>
+      <img class="flag" src="https://www.countryflags.io/us/flat/64.png" alt="US Flag">
+    </div>
+    <button class="joinButton" data-room="Room1">Join Room 1</button>
+  </div>
+
+  <!-- Room 2 -->
+  <div class="room-container">
+    <h2>Room 2</h2>
+    <div class="room-details">
+      <span>Time: 2:00 PM</span>
+      <span>Language: Spanish</span>
+      <img class="flag" src="https://www.countryflags.io/es/flat/64.png" alt="Spain Flag">
+    </div>
+    <button class="joinButton" data-room="Room2">Join Room 2</button>
+  </div>
+
+  <!-- Room 3 -->
+  <div class="room-container">
+    <h2>Room 3</h2>
+    <div class="room-details">
+      <span>Time: 8:00 PM</span>
+      <span>Language: French</span>
+      <img class="flag" src="https://www.countryflags.io/fr/flat/64.png" alt="France Flag">
+    </div>
+    <button class="joinButton" data-room="Room3">Join Room 3</button>
+  </div>
+
+  <script type="text/javascript">
+    document.querySelectorAll('.joinButton').forEach(button => {
+      button.addEventListener('click', () => {
+        joinRoom(button.getAttribute('data-room'));
+      });
+    });
+
+    function joinRoom(roomName) {
+      const domain = '8x8.vc';
+      const roomUrl = `https://${domain}/${roomName}`;
+      window.open(roomUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
